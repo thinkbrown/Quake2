@@ -1,0 +1,13 @@
+--- Makefile.orig	2007-10-28 21:40:01.000000000 -0200
++++ Makefile	2007-10-28 21:40:27.000000000 -0200
+@@ -339,8 +339,8 @@
+   $(warning Warning: SVGA not supported for $(ARCH))
+  endif
+ 
+- ifeq ($(strip $(BUILD_SOFTX)),YES)
+-  $(warning Warning: Software X Renderer not supported for $(ARCH))
++ ifeq ($(strip $(BUILD_X11)),YES)
++  TARGETS += $(BUILDDIR)/ref_softx.$(SHLIBEXT)
+  endif
+ 
+  ifeq ($(strip $(BUILD_GLX)),YES)

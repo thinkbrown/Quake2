@@ -1,0 +1,11 @@
+--- quake2/src/linux/rw_in_aa.c	2003-07-12 03:59:51.000000000 +0200
++++ quake2/src/linux/rw_in_aa.c	2007-09-20 12:42:31.000000000 +0200
+@@ -46,7 +46,7 @@
+ #include <sys/mman.h>
+ 
+ #if defined (__linux__)
+-#include <asm/io.h>
++/* #include <asm/io.h> */
+ #include <sys/vt.h>
+ #endif
+ 

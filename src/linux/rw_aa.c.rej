@@ -1,0 +1,11 @@
+--- quake2/src/linux/rw_aa.c	2003-07-12 03:59:51.000000000 +0200
++++ quake2/src/linux/rw_aa.c	2007-09-20 12:42:55.000000000 +0200
+@@ -63,7 +63,7 @@
+ #include <dlfcn.h>
+ #if defined (__linux__)
+ #include <sys/vt.h>
+-#include <asm/io.h>
++/* #include <asm/io.h> */
+ #endif
+ #include <aalib.h>
+ 

@@ -1,0 +1,144 @@
+10
+
+dir
+205
+svn://svn.icculus.org/quake2/trunk/src
+svn://svn.icculus.org/quake2
+
+
+
+2006-01-10T00:17:07.000000Z
+202
+bburns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c3abfb80-db13-0410-b49b-85a4594cde44
+
+quake2.dsw
+file
+
+
+
+
+2012-02-09T02:12:29.823446Z
+b86874f960a70f6947f2d8617733d4c4
+2001-12-28T08:04:22.000000Z
+2
+root
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1472
+
+docs
+dir
+
+rhapsody
+dir
+
+ref_gl
+dir
+
+linux
+dir
+
+win32
+dir
+
+server
+dir
+
+ref_soft
+dir
+
+game
+dir
+
+qcommon
+dir
+
+null
+dir
+
+irix
+dir
+
+ctf
+dir
+
+solaris
+dir
+
+specfiles
+dir
+
+ref_candygl
+dir
+
+quake2.dsp
+file
+
+
+
+
+2012-02-09T02:12:29.827446Z
+5e092c3605aa73f0e7ec20c3e5be8311
+2001-12-28T08:04:22.000000Z
+2
+root
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+39648
+
+client
+dir
+
