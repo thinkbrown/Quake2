@@ -12,7 +12,7 @@
 # (Note: not all options are available for all platforms).
 # quake2 (uses OSS for sound, cdrom ioctls for cd audio) is automatically built.
 # game$(ARCH).so is automatically built.
-BUILD_SDLQUAKE2=YES	# sdlquake2 executable (uses SDL for cdrom and sound)
+BUILD_SDLQUAKE2=NO	# sdlquake2 executable (uses SDL for cdrom and sound)
 BUILD_SVGA=NO		# SVGAlib driver. Seems to work fine.
 BUILD_X11=YES		# X11 software driver. Works somewhat ok.
 BUILD_GLX=YES		# X11 GLX driver. Works somewhat ok.
@@ -27,7 +27,7 @@ BUILD_ARTS=NO		# build in support for libaRts sound.
 BUILD_ALSA=YES		# build in support for ALSA (default sound on 2.6)
 BUILD_DEDICATED=NO	# build a dedicated quake2 server
 BUILD_AA=NO		# build the ascii soft renderer.
-BUILD_QMAX=YES		# build the fancier GL graphics
+BUILD_QMAX=NO		# build the fancier GL graphics
 BUILD_RETEXTURE=YES	# build a version supporting retextured graphics
 BUILD_REDBLUE=NO	# build a red-blue 3d glasses renderer...
 STATICSDL=NO
