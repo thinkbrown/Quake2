@@ -1,2 +1,3 @@
 Bugs:
-* In  SDL Mode, Switching resolutions loses the joystick.
+Setup PPC64 library name (gameppc64.so)
+Modify ALSA code to support big-endian architecture (guessing at what sound problem is under PPC64)
