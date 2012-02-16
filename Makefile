@@ -12,7 +12,7 @@
 # (Note: not all options are available for all platforms).
 # quake2 (uses OSS for sound, cdrom ioctls for cd audio) is automatically built.
 # game$(ARCH).so is automatically built.
-BUILD_SDLQUAKE2=NO	# sdlquake2 executable (uses SDL for cdrom and sound)
+BUILD_SDLQUAKE2=YES	# sdlquake2 executable (uses SDL for cdrom and sound)
 BUILD_SVGA=NO		# SVGAlib driver. Seems to work fine.
 BUILD_X11=YES		# X11 software driver. Works somewhat ok.
 BUILD_GLX=YES		# X11 GLX driver. Works somewhat ok.
@@ -27,7 +27,7 @@ BUILD_ARTS=NO		# build in support for libaRts sound.
 BUILD_ALSA=YES		# build in support for ALSA (default sound on 2.6)
 BUILD_DEDICATED=NO	# build a dedicated quake2 server
 BUILD_AA=NO		# build the ascii soft renderer.
-BUILD_QMAX=NO		# build the fancier GL graphics
+BUILD_QMAX=YES		# build the fancier GL graphics
 BUILD_RETEXTURE=YES	# build a version supporting retextured graphics
 BUILD_REDBLUE=NO	# build a red-blue 3d glasses renderer...
 STATICSDL=NO
@@ -56,7 +56,6 @@ endif
 endif
 endif
 
-
 # this nice line comes from the linux kernel makefile
 ARCH := $(shell uname -m | sed -e s/i.86/i386/ -e s/sun4u/sparc/ -e s/sparc64/sparc/ -e s/arm.*/arm/ -e s/sa110/arm/ -e s/alpha/axp/)
 
@@ -65,7 +64,9 @@ ifneq ($(ARCH),i386)
 ifneq ($(ARCH),axp)
 ifneq ($(ARCH),ppc)
 ifneq ($(ARCH),sparc)
+ifneq ($(ARCH),ppc64)
 $(error arch $(ARCH) is currently not supported)
+endif
 endif
 endif
 endif
@@ -83,6 +84,11 @@ endif
 ifeq ($(ARCH),ppc)
 OPT_CFLAGS=-O2 -ffast-math -funroll-loops \
 	-fomit-frame-pointer -fexpensive-optimizations
+endif
+
+ifeq ($(ARCH),ppc64)
+OPT_CFLAGS=-O3 -ffast-math -funroll-loops \
+        -fomit-frame-pointer -fexpensive-optimizations -maltivec
 endif
 
 ifeq ($(ARCH),sparc)
@@ -313,6 +319,36 @@ ifeq ($(ARCH),ppc)
   TARGETS += $(BUILDDIR)/ref_sdlgl.$(SHLIBEXT)
  endif
 endif # ARCH ppc
+
+ifeq ($(ARCH),ppc64)
+ TARGETS=$(BUILDDIR)/game$(ARCH).$(SHLIBEXT) $(BUILDDIR)/sdlquake2
+ ifeq ($(strip $(BUILD_SDLQUAKE2)),YES)
+ endif
+
+ ifeq ($(strip $(BUILD_SVGA)),YES)	
+  $(warning Warning: SVGAlib support not supported for $(ARCH))
+ endif
+
+ ifeq ($(strip $(BUILD_X11)),YES)
+  TARGETS += $(BUILDDIR)/ref_softx.$(SHLIBEXT)
+ endif
+
+ ifeq ($(strip $(BUILD_GLX)),YES)
+  TARGETS += $(BUILDDIR)/ref_glx.$(SHLIBEXT)
+ endif
+
+ ifeq ($(strip $(BUILD_FXGL)),YES)
+  $(warning Warning: FXGL support not supported for $(ARCH))
+ endif
+
+ ifeq ($(strip $(BUILD_SDL)),YES)
+  TARGETS += $(BUILDDIR)/ref_softsdl.$(SHLIBEXT)
+ endif
+
+ ifeq ($(strip $(BUILD_SDLGL)),YES)
+  TARGETS += $(BUILDDIR)/ref_sdlgl.$(SHLIBEXT)
+ endif
+endif # ARCH ppc64
 
 ifeq ($(ARCH),sparc)
  ifeq ($(strip $(BUILD_SDLQUAKE2)),YES)
