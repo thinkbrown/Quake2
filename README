@@ -1,5 +1,23 @@
-This is a patched version of the Quake2 Engine from http://icculus.org/. It hasn't been updated in a while, and as such has lots of compatibility issues with the latest OS's. I started with an svn checkout and began patching it with numerous different patches until it ran on my machine (Debian Squeeze, x86_64). 
+This is a patched version of the Quake2 Engine from http://icculus.org/. It hasn't been updated in a while, and as such has lots of compatibility issues with the latest OS's. I started with an svn checkout and began patching it with numerous different patches until it ran on my machines.
 
 It also has some changes to allow building on PPC64 machines, although this is still experimental
 NOTE: For PPC64, the normal quake executable has been disabled, due to issues with alsa sound. sdlquake will be built by default instead.
 NOTE: For PPC64, you must rename gameppc64.so to gameppc.so. This will be fixed in a later update (I'm not exactly sure how it determines the name of the library)
+
+Tested Systems:
+  Dell Inspiron 1764
+    Debian Squeeze x86_64
+    kernel: 3.2.1 custom
+    i5-430M, 1 pp, 2 core, 4 thread, 2.27ghz, 4GB DDR3
+    Intel Integrated Graphics
+    Status: Seemingly perfect
+  Dell Latitude D600
+    Debian Squeeze i386
+    kernel: 3.2.7 custom
+    Pentium M, 1 pp, 1 core, 1 thread, 1.8ghz, 2GB DDR
+    Status: Seemingly perfect
+  PowerMac G5
+    Debian Squeeze ppc64
+    kernel: debian stock
+    PowerPC 970FX, 2pp, 1 core, 2 threads, 1.8ghz, 2.5GB DDR
+    Status: Needs work
