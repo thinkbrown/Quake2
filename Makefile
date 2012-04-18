@@ -88,7 +88,7 @@ endif
 
 ifeq ($(ARCH),ppc64)
 OPT_CFLAGS=-O3 -ffast-math -funroll-loops \
-        -fomit-frame-pointer -fexpensive-optimizations -maltivec
+        -fomit-frame-pointer -fexpensive-optimizations -maltivec 
 endif
 
 ifeq ($(ARCH),sparc)
