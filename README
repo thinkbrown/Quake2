@@ -2,7 +2,7 @@ This is a patched version of the Quake2 Engine from http://icculus.org/. It hasn
 
 It also has some changes to allow building on PPC64 machines, although this is still experimental
 NOTE: For PPC64, the normal quake executable has been disabled, due to issues with alsa sound. sdlquake will be built by default instead.
-NOTE: For PPC64, you must rename gameppc64.so to gameppc.so. This will be fixed in a later update (I'm not exactly sure how it determines the name of the library)
+
 
 Tested Systems:
   Dell Inspiron 1764
