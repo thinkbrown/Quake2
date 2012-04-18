@@ -34,8 +34,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <ctype.h>
 #include <sys/wait.h>
 #include <sys/mman.h>
-#include <errno.h>
-#include <dlfcn.h>
+#include <errno.h>	
 
 #include "../qcommon/qcommon.h"
 
@@ -211,7 +210,6 @@ void *Sys_GetGameAPI (void *parms)
 {
 	void	*(*GetGameAPI) (void *);
 	
-	FILE	*fp;
 	char	name[MAX_OSPATH];
 	char	*path;
 	char	*str_p;
@@ -221,10 +219,14 @@ void *Sys_GetGameAPI (void *parms)
 	const char *gamename = "gamex86_64.so";
 #elif defined __alpha__
 	const char *gamename = "gameaxp.so";
-#elif defined __powerpc__
-	const char *gamename = "gameppc.so";
-#elif defined __powerpc64__
+#elif defined __powerpc__ 
+#if (_LFS64_LARGEFILE == 1)
         const char *gamename = "gameppc64.so";
+#elif (_LFS64_LARGEFILE == 0)
+        const char *gamename = "gameppc.so";
+#else
+#error Unknown PowerPC
+#endif
 #elif defined __sparc__
 	const char *gamename = "gamesparc.so";
 #else
