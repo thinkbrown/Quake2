@@ -67,7 +67,9 @@ SNDDMA_Init (void)
 
 	/* Set up the desired format */
 	freq = (Cvar_Get("s_khz", "0", CVAR_ARCHIVE))->value;
-	if (freq == 44)
+	if (freq == 48)
+		desired.freq = 48000;
+	else if (freq == 44)
 		desired.freq = 44100;
 	else if (freq == 22)
 		desired.freq = 22050;
@@ -90,7 +92,9 @@ SNDDMA_Init (void)
 	}
 	desired.channels = (Cvar_Get("sndchannels", "2", CVAR_ARCHIVE))->value;
 	
-	if (desired.freq == 44100)
+	if (desired.freq == 48000)
+		desired.samples = 2560;
+	else if (desired.freq == 44100)
 		desired.samples = 2048;
 	else if (desired.freq == 22050)
 		desired.samples = 1024;

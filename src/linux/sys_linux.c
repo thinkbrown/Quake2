@@ -35,6 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <sys/wait.h>
 #include <sys/mman.h>
 #include <errno.h>	
+#include <dlfcn.h>
 
 #include "../qcommon/qcommon.h"
 
@@ -210,6 +211,7 @@ void *Sys_GetGameAPI (void *parms)
 {
 	void	*(*GetGameAPI) (void *);
 	
+	FILE	*fp;
 	char	name[MAX_OSPATH];
 	char	*path;
 	char	*str_p;
