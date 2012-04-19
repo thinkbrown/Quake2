@@ -20,4 +20,7 @@ Tested Systems:
     Debian Squeeze ppc64
     kernel: debian stock
     PowerPC 970FX, 2pp, 1 core, 2 threads, 1.8ghz, 2.5GB DDR
-    Status: Needs work
+    Status: Beta
+
+
+I've begun modifying the Quake-2-tools package under the SDK directory. It currently builds under PPC64 and I haven't had time to test on anything else.
